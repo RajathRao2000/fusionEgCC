@@ -23,10 +23,10 @@ module.exports = {
    * @param {CustomComponentContext} context 
    */
   invoke: async (context,done) => {
-    let userN=context.properties().input
+    let userId=context.properties().input
     let check=false;
 
-    if(userN=="cancel"){
+    if(userId=="cancel"){
       context.reply("Sure!")
       .keepTurn(true)
       .transition("cancel")
@@ -37,7 +37,7 @@ module.exports = {
     .then(response => response.json())
     .then(json => {
       for(let i=0;i<=json.record.users.length()-1;i++){
-        if(json.record.users[i]==userN){
+        if(json.record.users[i]==userId){
           check=true;
           break;
         }
