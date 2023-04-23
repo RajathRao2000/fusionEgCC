@@ -16,8 +16,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "@oracle/bots-node-sdk": "^2.6.4",
-    "express": "^4.17.1"
+
   },
   "bundleDependencies": []
 }
