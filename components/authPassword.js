@@ -10,7 +10,7 @@ var credImport=require('./cred.js')
  
 module.exports = {
   metadata: () => ({
-    name: 'authUserName',
+    name: 'authPassword',
     properties: {
       input: { required: true, type: 'string' },
     },
@@ -37,7 +37,7 @@ module.exports = {
     .then(response => response.json())
     .then(json => {
       for(let i=0;i<=json.record.users.length()-1;i++){
-        if(json.record.users[i].userID==userId){
+        if(json.record.users[i].password==userId){
           check=true;
           break;
         }
@@ -49,7 +49,7 @@ module.exports = {
         .transition("success")
         done()
       }else{
-        context.reply("User not Found!")
+        context.reply("Password not Found!")
         .keepTurn(true)
         .transition("fail")
         done()
