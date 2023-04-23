@@ -90,7 +90,7 @@ await fetch(url,{
   done();
 })
 .catch(error=>{
-  console.log(json)
+  console.log(error)
   context.transition("route2")
   context.keepTurn(true);
   done();
