@@ -33,8 +33,8 @@ await fetch(`https://fa-${credImport.server}-saasfademo1.ds-fa.oraclepdemos.com/
     "PersonID": json.items[i].personId,
     "StartDate": json.items[i].startDate,
     "EndDate": json.items[i].endDate,
-    "AbsenceType": json.items[i].absenceType,
-    "Duration": json.items[i].duration
+    "Duration": json.items[i].duration,
+    "AbsenceType": json.items[i].absenceType
   }
   }
   context.variable("data",data)
