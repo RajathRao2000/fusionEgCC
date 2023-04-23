@@ -13,6 +13,7 @@ module.exports = {
     name: 'authPassword',
     properties: {
       input: { required: true, type: 'string' },
+      usrname:{ required: true, type: 'string' },
     },
     supportedActions: ['success', 'fail', "cancel"]
   }),
@@ -23,8 +24,12 @@ module.exports = {
    * @param {CustomComponentContext} context 
    */
   invoke: async (context,done) => {
-    let userId=context.properties().input
+    let pass=context.properties().input
+    let usrname=context.properties().usrname
     let check=false;
+
+    let sessionUser,sessionID,sessionPs
+    
 
     if(userId=="cancel"){
       context.reply("Sure!")
@@ -37,15 +42,21 @@ module.exports = {
     .then(response => response.json())
     .then(json => {
       for(let i=0;i<=json.record.users.length-1;i++){
-        if(json.record.users[i].password==userId){
-          check=true;
+        if(json.record.users[i].userID==usrname){
+          if(json.record.users[i].password==pass){
+            sessionUser=json.record.users[i].Name
+            sessionID=json.record.users[i].userID
+            sessionPs=json.record.users[i].password
+            check=true;
+            break;
+          }
           break;
         }
       }
       
       if(check){
         context.reply("Verified!")
-        .variable("skill.")
+        .variable("skill.usrName",sessionUser)
         .keepTurn(true)
         .transition("success")
         done()
