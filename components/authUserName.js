@@ -36,7 +36,7 @@ module.exports = {
     await fetch("https://api.jsonbin.io/v3/b/6445380f9d312622a3508399")
     .then(response => response.json())
     .then(json => {
-      for(let i=0;i<=json.record.users.length()-1;i++){
+      for(let i=0;i<=json.record.users.length-1;i++){
         if(json.record.users[i].userID==userId){
           check=true;
           break;
