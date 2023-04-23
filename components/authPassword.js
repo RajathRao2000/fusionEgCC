@@ -31,7 +31,7 @@ module.exports = {
     let sessionUser,sessionID,sessionPs
     
 
-    if(userId=="cancel"){
+    if(pass=="cancel"){
       context.reply("Sure!")
       .keepTurn(true)
       .transition("cancel")
