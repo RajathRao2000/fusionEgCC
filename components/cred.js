@@ -1,6 +1,6 @@
 let userName="user_r13_a2f"
-let password="wIc8b^6*"
-let server="esll"
+let password="qFR4U?9^"
+let server="etit"
 
 exports.userName=userName
 exports.password=password
