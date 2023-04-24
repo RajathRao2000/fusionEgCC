@@ -20,7 +20,7 @@ module.exports = {
     mail=context.properties().newAdd
     let usrIP=context.properties().code
 
-await fetch(`https://fa-${credImport.server}-saasfademo1.ds-fa.oraclepdemos.com//hcmRestApi/resources/11.13.18.05/emps?q=PersonNumber=`+codeReceived,{
+await fetch(`https://fa-${credImport.server}-saasfademo1.ds-fa.oraclepdemos.com//hcmRestApi/resources/11.13.18.05/emps?q=PersonNumber=`+code,{
     method: 'get',
     headers: {
         'Authorization': 'Basic '+btoa(credImport.userName+':'+credImport.password),
