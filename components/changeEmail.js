@@ -33,7 +33,7 @@ await fetch(`https://fa-${credImport.server}-saasfademo1.ds-fa.oraclepdemos.com/
   console.log(json)
   url=json.items[0].links[0].href
   console.log(url)
-
+context.logger().info(url)
 var raw = JSON.stringify({
     "WorkEmail": mail,
   });
