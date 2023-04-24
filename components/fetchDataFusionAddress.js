@@ -21,7 +21,7 @@ module.exports = {
    * invoke methods gets called when the custom component state is executed in the dialog flow
    * @param {CustomComponentContext} context 
    */
-  invoke: async (context) => {
+  invoke: async (context,done) => {
     // Retrieve the value of the 'human' component property.
     let codeReceived=context.properties().input
 
@@ -44,19 +44,21 @@ await fetch(`https://fa-${credImport.server}-saasfademo1.ds-fa.oraclepdemos.com/
         "website": "http://www.sample.com",
         "keywords": "select",
         "imageUrl": "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
-        "name": name,
+        "name": bold(name),
         "description": "Address: "+address+"\nPostal-Code: "+postal+"\nCity: "+city
     }
 ] 
 
-  // context.reply("Name: <b>"+json.items[0].DisplayName+"</b>\n"+"\n"+"Address: "+json.items[0].AddressLine1+"\n"+"City: "+json.items[0].City+"\n"+"Postal Code: "+json.items[0].PostalCode+"\n"+"DOB: "+json.items[0].DateOfBirth)
   context.variable("dataAdd",dataAdd)
   context.keepTurn(true)
-  context.transition("output")
+  context.transition("route1")
+  done()
   })  
   .catch(error=>{
     context.reply('not found')
     context.keepTurn(true)
-    context.transition("output")
-    console.log(error)})
+    context.transition("route2")
+    console.log(error)
+    done()
+})
   }}
