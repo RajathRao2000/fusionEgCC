@@ -17,7 +17,7 @@ module.exports = {
    */
   invoke: async (context,done) => {
     let url,mail;
-    mail=context.properties().newAdd
+    mail=context.properties().newEmail
     let usrIP=context.properties().code
 
 await fetch(`https://fa-${credImport.server}-saasfademo1.ds-fa.oraclepdemos.com//hcmRestApi/resources/11.13.18.05/emps?q=PersonNumber=`+usrIP,{
