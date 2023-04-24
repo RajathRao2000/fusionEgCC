@@ -48,7 +48,8 @@ await fetch(`https://fa-${credImport.server}-saasfademo1.ds-fa.oraclepdemos.com/
 //         "description": "Phone: "+phone+"\nE-mail: "+email
 //     }
 // ] 
-context.reply("Your current E-mail: "+json.items[0].WorkEmail)
+context.reply("Your current E-mail: "+email)
+.variable("skill.useremail",email)
 context.keepTurn(true)
 context.transition("success")
 done();
