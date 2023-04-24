@@ -10,7 +10,7 @@ var credImport=require('./cred.js')
  
 module.exports = {
   metadata: () => ({
-    name: 'fetchDataFusionContact',
+    name: 'fetchEmail',
     properties: {
       input: { required: true, type: 'string' },
     },
