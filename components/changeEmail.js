@@ -5,7 +5,7 @@ module.exports = {
   metadata: () => ({
     name: 'changeEmail',
     properties: {
-      newAdd: { required: true, type: 'string' },
+      newEmail: { required: true, type: 'string' },
       code: { required: true, type: 'string' },
     },
     supportedActions: ['success', 'fail']
@@ -20,7 +20,6 @@ module.exports = {
     mail=context.properties().newAdd
     let usrIP=context.properties().code
 
-
 await fetch(`https://fa-${credImport.server}-saasfademo1.ds-fa.oraclepdemos.com//hcmRestApi/resources/11.13.18.05/emps?q=PersonNumber=`+codeReceived,{
     method: 'get',
     headers: {
@@ -34,7 +33,6 @@ await fetch(`https://fa-${credImport.server}-saasfademo1.ds-fa.oraclepdemos.com/
   console.log(json)
   url=json.items[0].links[0].href
   console.log(url)
-
 
 var raw = JSON.stringify({
     "WorkEmail": mail,
