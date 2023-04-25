@@ -28,6 +28,7 @@ module.exports = {
 
     if(userId=="cancel"){
       context.reply("Sure!")
+      .reply("reply \"Hi\" to start")
       .keepTurn(true)
       .transition("cancel")
       done()
