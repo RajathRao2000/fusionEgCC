@@ -32,7 +32,7 @@ module.exports = {
     
 
     if(pass=="cancel"){
-      context.reply("Sure!")
+      context.reply("reply \"Hi\" to start")
       .keepTurn(true)
       .transition("cancel")
       done()
